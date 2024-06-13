@@ -44,10 +44,15 @@ generate_pr_info() {
   gum style --foreground 212 "Is this a draft PR?"
   is_draft=$(gum choose "yes" "no")
 
-  gh pr create \
-    --draft="$is_draft" \
-    --title "$pr_title" \
-    --body "$pr_body"
+  if [ "$is_draft" = "yes" ]; then
+    gh pr create --draft \
+      --title "$pr_title" \
+      --body "$pr_body"
+  else
+    gh pr create \
+      --title "$pr_title" \
+      --body "$pr_body"
+  fi
 }
 
 # Main script execution starts here
