@@ -21,10 +21,10 @@ This is a simplified non-AI version of [Creating AI-Powered Pull Requests with M
 
 ## Installation
 
-1. Save the script somewhere in your path.
+1. Save the script somewhere in your path, e.g.:
 
 ```bash
-~/.local/bin/ship
+cp ./ship.sh ~/.local/bin/ship
 ```
 
 ## Usage
