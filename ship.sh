@@ -31,14 +31,21 @@ generate_pr_info() {
 
   pr_title_prefix="$type$scope"
 
+  # Pull request summary
   gum style --foreground 212 "Pull Request Summary:"
   pr_summary=$(gum input --placeholder "summary")
   pr_title="$pr_title_prefix: $pr_summary"
 
+  # Pull request description
   gum style --foreground 212 "Pull Request Description:"
   pr_body=$(gum write --placeholder "description of changes")
 
+  # Is Draft
+  gum style --foreground 212 "Is this a draft PR?"
+  is_draft=$(gum choose "yes" "no")
+
   gh pr create \
+    --draft="$is_draft" \
     --title "$pr_title" \
     --body "$pr_body"
 }
