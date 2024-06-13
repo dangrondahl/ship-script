@@ -38,3 +38,9 @@ ship
 ```
 
 Follow the prompts to create a PR.
+
+### Example
+
+  ```bash
+  $ ship
+  ````
