@@ -33,7 +33,7 @@ generate_pr_info() {
 
   # Pull request summary
   gum style --foreground 212 "Pull Request Summary:"
-  pr_summary=$(gum input --placeholder "summary")
+  pr_summary=$(gum input --placeholder "$(git log -1 --pretty=%B)")
   pr_title="$pr_title_prefix: $pr_summary"
 
   # Pull request description
