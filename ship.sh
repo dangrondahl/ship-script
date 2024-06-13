@@ -9,17 +9,12 @@ command_exists() {
 }
 
 # Check for required commands
-for cmd in git gum gh mods; do
+for cmd in git gum gh; do
   if ! command_exists "$cmd"; then
     echo "Error: $cmd is not installed."
     exit 1
   fi
 done
-
-# Get the default branch from the remote repository
-get_default_branch() {
-  git remote show origin | grep 'HEAD branch' | cut -d' ' -f5
-}
 
 # Generate PR title and body
 generate_pr_info() {
@@ -27,6 +22,7 @@ generate_pr_info() {
   local type scope pr_title_prefix pr_summary pr_body
 
   # Using the Conventional Commit format
+  gum style --foreground 212 "Change type:"
   type=$(gum choose "fix" "feat" "docs" "style" "refactor" "test" "chore" "revert")
   scope=$(gum input --placeholder "scope")
 
