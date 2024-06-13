@@ -29,6 +29,10 @@ cp ./ship.sh ~/.local/bin/ship
 
 ## Usage
 
+> ⚠️ NOTE: This currently only works with the default branch (normally `main`) as the destination branch for your PR.
+
+When working on a (feature) branch, do the normal git commit and push, e.g.:
+
 ```bash
 ship
 ```
